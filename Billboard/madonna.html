@@ -1,0 +1,110 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- juqery required for bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Year');
+            data.addColumn('number', 'Sales');
+            // A column for custom tooltip content
+            data.addColumn({
+                type: 'string',
+                role: 'tooltip'
+            });
+            data.addRows([
+                [1984, 35, 'Borderline'],
+                [1984, 66, 'Lucky Star'],
+                [1984, 79, 'Holiday'],
+                [1985, 2, 'Like a Virgin'],
+                [1985, 9, 'Crazy for You'],
+                [1985, 58, 'Material Girl'],
+                [1985, 81, 'Angel'],
+                [1985, 98, 'Dress You Up'],
+                [1986, 29, "Papa Don't Preach"],
+                [1986, 35, 'Live to Tell'],
+                [1986, 76, 'True Blue'],
+                [1987, 30, 'Open Your Heart'],
+                [1987, 42, "Who's That Girl"],
+                [1987, 46, 'Causing a Commotion'],
+                [1987, 58, 'La Isla Bonita'],
+                [1989, 25, 'Like a Prayer'],
+                [1989, 55, 'Express Yourself'],
+                [1989, 59, 'Cherish'],
+                [1990, 5, 'Vogue'],
+                [1991, 21, 'Justify My Love'],
+                [1992, 21, 'This Used to Be My Playground'],
+                [1993, 66, 'Deeper and Deeper'],
+                [1993, 67, 'Rain'],
+                [1994, 13, "I'll Remember"],
+                [1994, 84, 'Secret'],
+                [1995, 8, 'Take a Bow'],
+                [1995, 71, 'Secret'],
+                [1996, 51, "You'll See"],
+                [1997, 87, "Don't Cry for Me Argentina"],
+                [1997, 99, 'You Must Love Me'],
+                [1998, 32, 'Frozen'],
+                [1998, 75, 'Ray of Light'],
+                [2000, 17, 'Music'],
+                [2001, 34, "Don't Tell Me"],
+                [2006, 91, 'Hung Up']
+            ]);
+
+            var options = {
+                title: 'Madonna\'s Year-End Chart',
+                titleTextStyle: {
+                    color: '#5EAE9B'
+                },
+                colors: ['#5EAE9B'],
+                backgroundColor: 'transparent',
+                theme: 'material',
+                hAxis: {
+                    title: 'Year',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1990,
+                    maxValue: 2005,
+                    format: ' '
+                },
+                vAxis: {
+                    title: 'Rank',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1,
+                    maxValue: 100,
+                    direction: '-1'
+                },
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

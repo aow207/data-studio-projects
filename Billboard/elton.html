@@ -1,0 +1,101 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- juqery required for bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Year');
+            data.addColumn('number', 'Sales');
+            // A column for custom tooltip content
+            data.addColumn({
+                type: 'string',
+                role: 'tooltip'
+            });
+            data.addRows([
+                [1972, 40, 'Rocket Man'],
+                [1973, 7, 'Crocodile Rock'],
+                [1973, 48, 'Daniel'],
+                [1974, 9, 'Bennie and the Jets'],
+                [1974, 72, 'Goodbye Yellow Brick Road'],
+                [1974, 78, "Don't Let the Sun Go Down on Me"],
+                [1975, 3, 'Philadelphia Freedom'],
+                [1975, 34, 'Lucy in the Sky with Diamonds'],
+                [1975, 91, 'Someone Saved my Life Tonight'],
+                [1976, 65, 'Island Girl'],
+                [1977, 95, 'Sorry Seems to be the Hardest Word'],
+                [1979, 36, "Mama Can't Buy You Love"],
+                [1980, 16, 'Little Jeannie'],
+                [1982, 62, 'Blue Eyes'],
+                [1982, 76, 'Empty Garden Hey Hey Johnny'],
+                [1983, 74, "I'm Still Standing"],
+                [1984, 33, "I Guess That's Why They Call it the Blues"],
+                [1984, 54, 'Sad Songs Say So Much'],
+                [1986, 87, 'Nikita'],
+                [1988, 43, "I Don't Wanna Go on With You Like That"],
+                [1988, 71, 'Candle in the Wind'],
+                [1992, 43, 'The One'],
+                [1994, 18, 'Can You Feel the Love Tonight'],
+                [1995, 59, 'Believe'],
+                [1997, 1, 'Something About the Way You Look Tonight / Candle in the Wind (1997)'],
+                [1998, 8, 'Candle in the Wind (1997)']
+            ]);
+
+            var options = {
+                title: 'Elton John\'s Year-End Chart',
+                titleTextStyle: {
+                    color: '#5EAE9B'
+                },
+                colors: ['#5EAE9B'],
+                backgroundColor: 'transparent',
+                theme: 'material',
+                hAxis: {
+                    title: 'Year',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1990,
+                    maxValue: 2005,
+                    format: ' '
+                },
+                vAxis: {
+                    title: 'Rank',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1,
+                    maxValue: 100,
+                    direction: '-1'
+                },
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

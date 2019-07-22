@@ -1,0 +1,97 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- juqery required for bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Year');
+            data.addColumn('number', 'Sales');
+            // A column for custom tooltip content
+            data.addColumn({
+                type: 'string',
+                role: 'tooltip'
+            });
+            data.addRows([
+                [1986, 32, 'When I Think of You'],
+                [1986, 43, 'What Have You Done For Me Lately'],
+                [1986, 58, 'Nasty'],
+                [1987, 37, 'Control'],
+                [1987, 48, "Let's Wait Awhile"],
+                [1989, 5, 'Miss You Much'],
+                [1990, 15, 'Escapade'],
+                [1990, 38, 'Rhythm Nation'],
+                [1990, 44, 'Alright'],
+                [1990, 49, 'Come Back to Me'],
+                [1990, 59, 'Black Cat'],
+                [1991, 19, 'Love Will Never Do Without You'],
+                [1993, 4, "Thats the Way Love Goes"],
+                [1993, 19, 'If'],
+                [1993, 74, 'Again'],
+                [1994, 12, 'Again'],
+                [1994, 30, 'Any Time Any Place'],
+                [1994, 48, 'Because of Love'],
+                [1995, 29, 'Runaway'],
+                [1995, 64, 'You Want This'],
+                [1996, 84, 'Runaway'],
+                [2000, 18, "Doesn't Really Matter"]
+            ]);
+
+            var options = {
+                title: 'Janet Jackson\'s Year-End Chart',
+                titleTextStyle: {
+                    color: '#5EAE9B'
+                },
+                colors: ['#5EAE9B'],
+                backgroundColor: 'transparent',
+                theme: 'material',
+                hAxis: {
+                    title: 'Year',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1990,
+                    maxValue: 2005,
+                    format: ' '
+                },
+                vAxis: {
+                    title: 'Rank',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1,
+                    maxValue: 100,
+                    direction: '-1'
+                },
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- juqery required for bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Year');
+            data.addColumn('number', 'Sales');
+            // A column for custom tooltip content
+            data.addColumn({
+                type: 'string',
+                role: 'tooltip'
+            });
+            data.addRows([
+                [1990, 6, 'Vision of Love'],
+                [1990, 76, 'Love Takes Time'],
+                [1991, 13, 'Someday'],
+                [1991, 22, 'Emotions'],
+                [1991, 26, "I Don't Wanna Cry"],
+                [1991, 69, 'Love Takes Time'],
+                [1992, 16, "I'll Be There"],
+                [1992, 23, "Can't Let Go"],
+                [1992, 42, 'Make it Happen'],
+                [1993, 8, 'Dreamlover'],
+                [1994, 5, 'Hero'],
+                [1994, 16, 'Without You / Never Forget You'],
+                [1994, 47, 'Anytime You Need a Friend'],
+                [1995, 7, 'Fantasy'],
+                [1996, 5, 'Always Be My Baby'],
+                [1996, 49, 'Fantasy'],
+                [1997, 32, 'Honey'],
+                [1998, 17, 'My All'],
+                [1999, 36, 'I Still Believe'],
+                [2005, 1, 'We Belong Together'],
+                [2005, 15, 'Shake it Off'],
+                [2005, 69, "It's Like That"],
+                [2006, 50, "Don't Forget About Us"],
+                [2008, 22, "Touch My Body"],
+                [2009, 41, 'Obsessed']
+            ]);
+
+            var options = {
+                title: 'Mariah Carey\'s Year-End Chart',
+                titleTextStyle: {
+                    color: '#5EAE9B'
+                },
+                colors: ['#5EAE9B'],
+                backgroundColor: 'transparent',
+                theme: 'material',
+                hAxis: {
+                    title: 'Year',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1990,
+                    maxValue: 2005,
+                    format: ' '
+                },
+                vAxis: {
+                    title: 'Rank',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1,
+                    maxValue: 100,
+                    direction: '-1'
+                },
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

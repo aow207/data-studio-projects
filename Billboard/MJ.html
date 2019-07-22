@@ -1,0 +1,97 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- juqery required for bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Year');
+            data.addColumn('number', 'Sales');
+            // A column for custom tooltip content
+            data.addColumn({
+                type: 'string',
+                role: 'tooltip'
+            });
+            data.addRows([
+                [1972, 20, 'Ben'],
+                [1972, 41, "Rockin' Robin"],
+                [1979, 91, "Don't Stop 'Til You Get Enough"],
+                [1980, 4, 'Rock With You'],
+                [1980, 65, "She's out of My Life"],
+                [1980, 79, 'Off the Wall'],
+                [1983, 2, 'Billie Jean'],
+                [1983, 5, 'Beat It'],
+                [1983, 68, "Wanna be Startin' Somethin'"],
+                [1983, 89, 'Human Nature'],
+                [1984, 78, 'Thriller'],
+                [1987, 59, 'Bad'],
+                [1988, 21, 'Man in the Mirror'],
+                [1988, 36, 'The Way You Make Me Feel'],
+                [1988, 61, 'Dirty Diana'],
+                [1989, 93, 'Smooth Criminal'],
+                [1992, 14, 'Black or White'],
+                [1992, 19, 'Remember the Time'],
+                [1992, 66, 'In the Closet'],
+                [1993, 47, 'Will You Be There'],
+                [1995, 21, 'You Are Not Alone'],
+                [2002, 64, 'Butterflies']
+            ]);
+
+            var options = {
+                title: 'Michael Jackson\'s Year-End Chart',
+                titleTextStyle: {
+                    color: '#5EAE9B'
+                },
+                colors: ['#5EAE9B'],
+                backgroundColor: 'transparent',
+                theme: 'material',
+                hAxis: {
+                    title: 'Year',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1990,
+                    maxValue: 2005,
+                    format: ' '
+                },
+                vAxis: {
+                    title: 'Rank',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                    minValue: 1,
+                    maxValue: 100,
+                    direction: '-1'
+                },
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>

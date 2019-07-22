@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['scatter']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Year');
+            data.addColumn('number', 'Rank');
+            // A column for custom tooltip content
+            data.addColumn({
+                type: 'string',
+                role: 'annotationText',
+                p: {
+                    html: true
+                }
+            });
+
+
+            data.addRows([
+                [1990, 6, 'vision of love'],
+                [1990, 76, 'love takes time'],
+                [1991, 13, 'someday'],
+                [1991, 22, 'emotions'],
+                [1991, 26, 'i dont wanna cry'],
+                [1991, 69, 'love takes time'],
+                [1992, 16, 'ill be there'],
+                [1992, 23, 'cant let go'],
+                [1992, 42, 'make it happen'],
+                [1993, 8, 'dreamlover'],
+                [1994, 5, 'hero'],
+                [1994, 16, 'without you / never forget you'],
+                [1994, 47, 'anytime you need a friend'],
+                [1995, 7, 'fantasy'],
+                [1996, 5, 'always be my baby'],
+                [1996, 49, 'fantasy'],
+                [1997, 32, 'honey'],
+                [1998, 17, 'my all'],
+                [1999, 36, 'i still believe'],
+                [2005, 1, 'we belong together'],
+                [2005, 15, 'shake it off'],
+                [2005, 69, 'its like that'],
+                [2006, 50, 'dont forget about us'],
+                [2008, 22, 'touch my body'],
+                [2009, 41, 'obsessed']
+            ]);
+
+            var options = {
+                width: 800,
+                height: 500,
+                tooltip: {
+                    isHtml: true
+                },
+                legend: 'none',
+                chart: {
+                    title: 'Mariah Carey\'s Year-End Chart',
+                    subtitle: 'sourced from Billboard'
+                },
+                hAxis: {
+                    title: 'Year',
+                    format: ' '
+
+                },
+                vAxis: {
+                    title: 'Rank'
+                }
+            };
+
+            var chart = new google.charts.Scatter(document.getElementById('scatterchart_material'));
+
+            chart.draw(data, google.charts.Scatter.convertOptions(options));
+        }
+    </script>
+</head>
+
+<body>
+    <div id="scatterchart_material"></div>
+</body>
+
+</html>
