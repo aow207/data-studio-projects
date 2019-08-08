@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['geochart'],
+            // Note: you will need to get a mapsApiKey for your project.
+            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+            'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+
+        function drawRegionsMap() {
+            var data = google.visualization.arrayToDataTable([
+                ['provinces', 'Popularity'],
+                ['US-AL', 6],
+                ['CONNECTICUT', 1],
+                ['MAINE', 3],
+                ['MASSACHUSETTS', 4],
+                ['NEW HAMPSHIRE', 1],
+                ['RHODE ISLAND', 2],
+                ['VERMONT', 1],
+                ['MIDDLE ATLANTIC', 24],
+                ['NEW JERSEY', 7],
+                ['NEW YORK', 5],
+                ['NEW YORK CITY', 11],
+                ['PENNSYLVANIA', 8],
+                ['EAST NORTH CENTRAL', 7],
+                ['ILLINOIS', 3],
+                ['INDIANA', 1],
+                ['MICHIGAN', 3],
+                ['OHIO', 3],
+                ['WISCONSIN', 2],
+                ['WEST NORTH CENTRAL', 6],
+                ['IOWA', 2],
+                ['KANSAS', 2],
+                ['MINNESOTA', 4],
+                ['MISSOURI', 3],
+                ['NEBRASKA', 2],
+                ['NORTH DAKOTA', 2],
+                ['SOUTH DAKOTA', 1],
+                ['SOUTH ATLANTIC', 20],
+                ['DELAWARE', 3],
+                ['DISTRICT OF COLUMBIA', 2],
+                ['FLORIDA', 4],
+                ['GEORGIA', 3],
+                ['MARYLAND', 9],
+                ['NORTH CAROLINA', 4],
+                ['SOUTH CAROLINA', 0],
+                ['VIRGINIA', 5],
+                ['WEST VIRGINIA', 0],
+                ['EAST SOUTH CENTRAL', 3],
+                ['ALABAMA', 1],
+                ['KENTUCKY', 2],
+                ['MISSISSIPPI', 1],
+                ['TENNESSEE', 2],
+                ['WEST SOUTH CENTRAL', 24],
+                ['ARKANSAS', 1],
+                ['LOUISIANA', 2],
+                ['OKLAHOMA', 2],
+                ['TEXAS', 22],
+                ['MOUNTAIN', 4],
+                ['ARIZONA', 3],
+                ['COLORADO', 2],
+                ['IDAHO', 1],
+                ['MONTANA', 1],
+                ['NEVADA', 2],
+                ['NEW MEXICO', 1],
+                ['UTAH', 1],
+                ['WYOMING', 1],
+                ['PACIFIC', 40],
+                ['ALASKA', 1],
+                ['CALIFORNIA', 5],
+                ['HAWAII', 1],
+                ['OREGON', 1],
+                ['WASHINGTON', 40],
+                ['US TERRITORIES', 0],
+                ['AMERICAN SAMOA', 0],
+                ['NORTHERN MARIANA ISLANDS', 0],
+                ['GUAM', 0],
+                ['PUERTO RICO', 0],
+                ['U.S. VIRGIN ISLANDS', 0]
+            ]);
+
+            var options = {};
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+</body>
+
+</html>
